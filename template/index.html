@@ -1,36 +1,63 @@
-<!-- {% load static %} -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{setting.title}}</title>
-	<h1>{{setting.description}}</h1>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
+        .pon-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .pon-item {
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid #ccc; 
+            border-radius: 8px; 
+            padding: 10px; 
+            background-color: #f9f9f9; 
+        }
+
+        .pon-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%; 
+        }
+
+        @media (max-width: 768px) {
+            .pon-item {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pon-item {
+                width: 100%;
+            }
+        }
+
+    </style>
 </head>
 <body>
-	<img src="{{setting.logo.url}}" alt="pkkkks" width="100" height="105" />
-<div>
-	<a href="tel:{{setting.phone_number}}">{{setting.phone_number}}</a>
-</div>
-
-<div>
-	<a href= "mailto:{{setting.email}}"> {{setting.email}} </a>
-</div>
-
-<div>
-	<a href="instagram//:{{setting.instagram}}">instagram://{{setting.instagram}}</a>
-</div>
-
-
-###############################################
-<div>
-	<h3> {{gallery.title}} </h3>
-	<img src="{{gallery.image.url}}" width="150px" height="140px" alt="">
-	<p>{{gallery.description}}</p>
-
-</div>
-
+    <h1 style="text-align: center;">Наши сотрудники</h1>
+    <div class="pon">
+        {% for pon in pon %}
+            <div class="pon-item">
+                <img src="{{ employee.photo.url }}" alt="{{ employee.name }}">
+                <h2>{{ pon.name }}</h2>
+                <p>{{ pon.position }}</p>
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>

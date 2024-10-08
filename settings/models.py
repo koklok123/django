@@ -1,36 +1,32 @@
 from django.db import models
 
 # Create your models here.
+
+
 class Setting(models.Model):
-    title = models.CharField(
-        max_length=255,
-        verbose_name='Заголовок сайта'
+    name = models.CharField(
+        max_length=100,
+        verbose_name='Имя сотрудника'
     )
-    description = models.TextField(
-        verbose_name='Описание сайта'
+    position = models.CharField(
+        max_length=100,
+        verbose_name='Должность сотрудника'
     )
-    logo = models.ImageField(
-        upload_to='logo_image/'
+    photo = models.ImageField(
+        upload_to='employee_photo/'
     )
-    phone_number = models.IntegerField(
-        verbose_name='Номер телефона'
+    bio = models.TextField(
+        verbose_name='Краткое описание или биография'
     )
-    email = models.EmailField(
-        verbose_name="Укажите почту"
-    )
-    instagram = models.URLField(
-        verbose_name="Ссылка на instagram"
-    )
-    
-    
+
 class Galery(models.Model):
     title = models.CharField(
         max_length=255,
-        verbose_name="Заголовок"
+        verbose_name="Имя"
     )
     image = models.ImageField(
         upload_to='galery/'
     )
     description = models.TextField(
-        verbose_name='Описание фото'
+        verbose_name='Краткое содержание'
     )

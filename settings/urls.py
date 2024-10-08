@@ -1,8 +1,7 @@
 from django.urls import path
 
-from settings.views import nok
+from . import views
 
 urlpatterns = [
-    path('', nok, name='nok'),
-	
+    path('pon/', views.emply_list, name='emply_list')	
 ]

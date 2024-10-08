@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from settings.models import Setting, Galery
+from .models import Setting
 
-def nok(request):
-    setting = Setting.objects.latest("id")
-    gallery = Galery.objects.latest("id")
-    return render(request, "index.html", locals())
+def emply_list(request):
+    pon = Setting.objects.all()
+    return render(request, 'index.html', {'pon': pon})
